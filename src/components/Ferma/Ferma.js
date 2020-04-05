@@ -1,20 +1,21 @@
 import React, { useState } from "react";
 
-import { View, Text, TextInput, Button, TouchableOpacity } from "react-native";
+import { View, Text, TextInput, Button } from "react-native";
 
 import styles from "./styles";
 
 import { calcFactorization } from "./functions";
+
+import { Output } from "./Output";
 
 export const Ferma = () => {
     const [n, setN] = useState(-1);
     const [infoMessage, setinfoMessage] = useState(
         "Input n and press 'Calculate'"
     );
+    const [result, setResult] = useState({});
 
-    const [result, setResult] = useState([]);
-
-    const inputN = n => {
+    const inputN = (n) => {
         if (!isNaN(+n)) {
             if (n > 1) {
                 setN(+n);
@@ -30,9 +31,13 @@ export const Ferma = () => {
         }
     };
 
-    const fermaFactor = n => {
+    const fermaFactor = (n) => {
         const result = calcFactorization(n);
-        setResult(result);
+        setResult({
+            a: result[0],
+            b: result[1],
+            steps: result[2],
+        });
     };
 
     return (
@@ -40,18 +45,18 @@ export const Ferma = () => {
             <Text>Ferma</Text>
             <TextInput
                 style={styles.textInput}
-                onChangeText={text => inputN(text)}
+                onChangeText={(text) => inputN(text)}
                 keyboardType={"number-pad"}
             />
             <Text>{infoMessage}</Text>
-            <TouchableOpacity activeOpacity={0.5} disabled={n < 1}>
-                <Button
-                    title="Calculate"
-                    onPress={fermaFactor}
-                    disabled={n < 1 || isNaN(+n)}
-                />
-            </TouchableOpacity>
-            <Text>{result}</Text>
+            <Button
+                title="Calculate"
+                onPress={() => fermaFactor(n)}
+                disabled={n < 1 || isNaN(+n)}
+            />
+            {Object.keys(result).length == 0 ? null : (
+                <Output result={result} />
+            )}
         </View>
     );
 };

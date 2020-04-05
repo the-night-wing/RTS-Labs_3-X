@@ -16,7 +16,8 @@ const styles = StyleSheet.create({
         height: 50,
         borderColor: "black",
         borderWidth: 1
-    }
+    },
+    output: {}
 });
 
 export default styles;

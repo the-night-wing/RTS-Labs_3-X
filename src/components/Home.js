@@ -1,34 +1,24 @@
 import React from "react";
 
-import { StyleSheet, View, Button } from "react-native";
+import { createStackNavigator } from "@react-navigation/stack";
+import { NavigationContainer } from "@react-navigation/native";
 
-export const Home = ({ navigation }) => {
-    const navigate = where => {
-        navigation.navigate(where);
-    };
+import { Navigation } from "../components/Navigation/Navigation";
+import { Ferma } from "../components/Ferma/Ferma";
+import { Perceptron } from "../components/Perceptron/Perceptron";
+import { Genetic } from "../components/Genetic/Genetic";
 
+const Stack = createStackNavigator();
+
+export const Home = () => {
     return (
-        <View style={styles.container}>
-            <Button
-                title="Ferma Factorization"
-                onPress={() => navigate("Ferma")}
-            />
-            <Button title="Perceptron" onPress={() => navigate("Perceptron")} />
-            <Button
-                title="Genetic Algorithm"
-                onPress={() => navigate("Genetic")}
-            />
-        </View>
+        <NavigationContainer independent={true}>
+            <Stack.Navigator>
+                <Stack.Screen name="Navigation" component={Navigation} />
+                <Stack.Screen name="Ferma" component={Ferma} />
+                <Stack.Screen name="Perceptron" component={Perceptron} />
+                <Stack.Screen name="Genetic" component={Genetic} />
+            </Stack.Navigator>
+        </NavigationContainer>
     );
 };
-
-const styles = StyleSheet.create({
-    container: {
-        marginTop: 50,
-        display: "flex",
-        flexDirection: "column",
-        backgroundColor: "#fff",
-        alignItems: "center",
-        justifyContent: "center"
-    }
-});
