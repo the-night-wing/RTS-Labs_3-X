@@ -25,8 +25,12 @@ export const Ferma = () => {
     const inputN = (n) => {
         if (!isNaN(+n)) {
             if (n > 1) {
-                setN(+n);
-                setinfoMessage("n is successfuly writen");
+                if (n % 2 == 1) {
+                    setN(+n);
+                    setinfoMessage("n is successfuly writen");
+                } else {
+                    setinfoMessage("Enter an odd number");
+                }
             } else {
                 setinfoMessage("Enter n greater than 0");
                 if (n == "") {
@@ -44,6 +48,7 @@ export const Ferma = () => {
             a: result[0],
             b: result[1],
             steps: result[2],
+            n: result[3],
         });
     };
 
@@ -61,7 +66,7 @@ export const Ferma = () => {
                 <Button
                     title="Calculate"
                     onPress={() => fermaFactor(n)}
-                    disabled={n < 1 || isNaN(+n)}
+                    disabled={n < 1 || isNaN(+n) || n % 2 == 0}
                 />
             </TouchableHighlight>
             {Object.keys(result).length == 0 ? null : (
