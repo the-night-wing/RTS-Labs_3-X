@@ -1,4 +1,4 @@
-const calcFactorization = n => {
+const calcFactorization = (n) => {
     const s = Math.ceil(Math.sqrt(n));
 
     if (s * s == n) {
@@ -14,6 +14,9 @@ const calcFactorization = n => {
         x += k;
         l = x * x - n;
         k++;
+        if (x >= n) {
+            return [n, 1, k];
+        }
         if (Number.isInteger(Math.sqrt(l))) {
             let y = Math.sqrt(l);
             a = x + y;
