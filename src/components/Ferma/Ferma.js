@@ -1,12 +1,19 @@
 import React, { useState } from "react";
 
-import { View, Text, TextInput, Button } from "react-native";
+import {
+    View,
+    Text,
+    TextInput,
+    Button,
+    TouchableHighlight,
+} from "react-native";
 
 import styles from "./styles";
 
 import { calcFactorization } from "./functions";
 
 import { Output } from "./Output";
+import { TouchableOpacityComponent } from "react-native";
 
 export const Ferma = () => {
     const [n, setN] = useState(-1);
@@ -42,18 +49,21 @@ export const Ferma = () => {
 
     return (
         <View style={styles.container}>
-            <Text>Ferma</Text>
+            <Text>Ferma Factorization</Text>
             <TextInput
+                placeholder="Input n"
                 style={styles.textInput}
                 onChangeText={(text) => inputN(text)}
                 keyboardType={"number-pad"}
             />
             <Text>{infoMessage}</Text>
-            <Button
-                title="Calculate"
-                onPress={() => fermaFactor(n)}
-                disabled={n < 1 || isNaN(+n)}
-            />
+            <TouchableHighlight style={styles.button}>
+                <Button
+                    title="Calculate"
+                    onPress={() => fermaFactor(n)}
+                    disabled={n < 1 || isNaN(+n)}
+                />
+            </TouchableHighlight>
             {Object.keys(result).length == 0 ? null : (
                 <Output result={result} />
             )}
