@@ -65,7 +65,7 @@ const parseResult = (result) => {
             <Text>{`Last results:`}</Text>
             <Text>{result[0]}</Text>
             <Text>{`Amount of iterations : ${result[1]}`}</Text>
-            <Text>{`Time spent : ${result[2]}`}</Text>
+            <Text>{`Time spent : ${result[2]}ms`}</Text>
             {result[0] == "Success" ? (
                 <Text>{`W1 - ${result[3].toFixed(4)}; W2 - ${result[4].toFixed(
                     4

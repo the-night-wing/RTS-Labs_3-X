@@ -3,7 +3,7 @@ import { StyleSheet, Text, View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
-import { Ferma } from "./components/Ferma/Ferma";
+import { Info } from "./components/Info";
 import { Home } from "./components/Home";
 
 const Tab = createBottomTabNavigator();
@@ -13,8 +13,8 @@ export default function App() {
         <NavigationContainer>
             <Tab.Navigator>
                 <Tab.Screen
-                    name="Ferma"
-                    component={Ferma}
+                    name="Info"
+                    component={Info}
                     options={{ title: "Ferma Factorization" }}
                 />
                 <Tab.Screen
