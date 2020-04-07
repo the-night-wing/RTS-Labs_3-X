@@ -15,12 +15,12 @@ export default function App() {
                 <Tab.Screen
                     name="Info"
                     component={Info}
-                    options={{ title: "Ferma Factorization" }}
+                    options={{ title: "Info" }}
                 />
                 <Tab.Screen
                     name="Home"
                     component={Home}
-                    options={{ title: "Home Tab" }}
+                    options={{ title: "Labs" }}
                 />
                 {/* <View style={styles.container}>
                     <Text>Open up App.js to start working on your app!</Text>

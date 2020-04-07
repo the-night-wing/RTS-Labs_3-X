@@ -9,6 +9,7 @@ import {
 } from "react-native";
 
 import styles from "./styles";
+import globalStyles from "../global-styles";
 
 import { calcFactorization } from "./functions";
 
@@ -54,7 +55,7 @@ export const Ferma = () => {
 
     return (
         <View style={styles.container}>
-            <Text>Ferma Factorization</Text>
+            <Text style={globalStyles.header}>Ferma Factorization</Text>
             <TextInput
                 placeholder="Input n"
                 style={styles.textInput}

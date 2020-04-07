@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { Text, View, TouchableHighlight, Button, Picker } from "react-native";
 
 import styles from "./styles.js";
+import globalStyles from "../global-styles";
 
 import { calculate, parseResult } from "./functions";
 
@@ -36,9 +37,9 @@ export const Perceptron = () => {
 
     return (
         <View style={styles.container}>
-            <Text>Perceptron</Text>
-            <View>
-                <Text>Choose parameters:</Text>
+            <Text style={globalStyles.header}>Perceptron</Text>
+            <View style={styles.selectBlock}>
+                <Text style={globalStyles.subheader}>Choose parameters:</Text>
                 <View>
                     <Text>Speed:</Text>
                     <Picker

@@ -2,7 +2,7 @@ import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
     container: {
-        paddingTop: 100,
+        paddingTop: 50,
         flex: 1,
         backgroundColor: "#f8dbff",
         alignItems: "center",
@@ -18,19 +18,18 @@ const styles = StyleSheet.create({
         alignItems: "center",
     },
     button: {
-        // marginRight: 40,
-        // marginLeft: 40,
         marginTop: 20,
         marginBottom: 20,
-        // paddingTop: 20,
-        // paddingBottom: 20,
         backgroundColor: "#68a0cf",
         borderRadius: 5,
         borderWidth: 2,
         borderColor: "black",
-        // borderRadius: 20,
-        // marginTop: 20,
-        // margin: "20px 0",
+    },
+    selectBlock: {
+        height: 200,
+        flex: 1,
+        alignItems: "center",
+        justifyContent: "center",
     },
 });
 
