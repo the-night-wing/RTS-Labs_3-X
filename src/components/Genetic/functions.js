@@ -112,14 +112,17 @@ export const calcGenetic = (coeffs) => {
   let optimalPercent = 0;
   setGeneMax(coeffs.y);
   createInitialPopulation();
-  for (let iters = 0; iters < MAX_ITERATIONS; iters++) {
+  let generations = 0;
+  for (generations = 0; generations < MAX_ITERATIONS; generations++) {
     const ind = fillChromosomesWithFitnesses(coeffs);
 
     if (ind != FAILED_FLAG) {
       return [
         `${population[
           ind
-        ].toString()} Оптимальний відсоток: ${optimalPercent.toFixed(2)}`,
+        ].toString()} Оптимальний відсоток: ${optimalPercent.toFixed(
+          2
+        )} Кількість поколінь: ${generations}`,
         ''
       ];
     }
@@ -130,5 +133,8 @@ export const calcGenetic = (coeffs) => {
     const nextGeneration = getNextGeneration(pairs);
     setPopulation(nextGeneration);
   }
-  return ['', 'Рішення не знайдено. Оберіть інші Коефіцієнти'];
+  return [
+    '',
+    `Рішення не знайдено. Оберіть інші Коефіцієнти Кількість поколінь: ${generations}`
+  ];
 };

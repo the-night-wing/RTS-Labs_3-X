@@ -1,4 +1,4 @@
-import { getRandomInt, getRandomFloat } from './helper';
+import { getRandomInt, getRandomFloat } from './functions';
 
 const makeChromosome = ({ GENES_COUNT, GENE_MIN, GENE_MAX }) => {
   const MUTATION_LIKELIHOOD = 5.0;
